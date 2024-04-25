@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 const Pokedex = React.lazy(() => import("../views/Pokedex"));
 const PokemonProfile = React.lazy(() => import("../views/PokemonsProfile"));
 const PokemonByType = React.lazy(() => import("../views/PokemonType"));
+const FavoritePokemon = React.lazy(() => import("../views/PokemonByFavorite"));
 
 const AppRoutes = () => (
   <Routes>
@@ -26,8 +27,16 @@ const AppRoutes = () => (
     <Route
       path="/type/:typeName"
       element={
-        <React.Suspense fallback={<div>Loading</div>}>
+        <React.Suspense fallback={<div>Loading...</div>}>
           <PokemonByType />
+        </React.Suspense>
+      }
+    />
+    <Route
+      path="/favorite"
+      element={
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <FavoritePokemon />
         </React.Suspense>
       }
     />
