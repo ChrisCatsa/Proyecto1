@@ -5,6 +5,7 @@ import { Grid } from "../shared/Grid/Grid";
 
 const PokemonList: React.FC = () => {
   const { pokemonList, goToNextPage, goToPreviousPage } = useGetPokemonList();
+  console.log('this--->', pokemonList)
   return (
     <Grid goToNextPage={goToNextPage} goToPreviousPage={goToPreviousPage}>
       {pokemonList?.map((pokemon) => (

@@ -36,6 +36,11 @@ export const useGetPokemonList = () => {
             setUrl(data.previous);
         }
     };
+
+    const getPokemonId = (url: string) => {
+        const parts = url.split('/');
+        return parts[parts.length - 2]
+    }
     
     return {
         pokemonList: data?.results ?? [],

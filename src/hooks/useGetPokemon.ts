@@ -6,7 +6,9 @@ export const useGetPokemon = (pokemonName?: string, pokemonId?: number) => {
     const { data: pokemonData, isLoading, error} = useQuery<PokemonData>({
         queryKey: ['pokemon', pokemonName, pokemonId],
         queryFn: async () => {
-            const response = await fetch(`${BASE_URL}pokemon/${pokemonName ?? pokemonId}`);
+            const response = await fetch(`${BASE_URL}pokemon/${pokemonName ?? pokemonId}`, {
+                mode: 'no-cors'
+            });
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
